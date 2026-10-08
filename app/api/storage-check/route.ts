@@ -1,6 +1,8 @@
 // TEMPORARY diagnostic for the Vercel showcase. Safe to delete once photos work.
 import { blobEnabled, blobBase } from "@/lib/storage";
 
+const tokenVars = () => Object.keys(process.env).filter((k) => /READ_WRITE_TOKEN|BLOB/i.test(k));
+
 export const dynamic = "force-dynamic";
 
 export async function GET() {
@@ -8,6 +10,7 @@ export async function GET() {
   const out: Record<string, unknown> = {
     blobTokenPresent: blobEnabled(),
     blobHost: base ? base.replace(/^https?:\/\//, "") : null,
+    tokenVariableNames: tokenVars(),
     databaseConfigured: !!process.env.DATABASE_URL,
   };
   if (base) {

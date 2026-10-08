@@ -8,12 +8,20 @@ import path from "node:path";
 
 export const UPLOAD_ROOT = process.env.UPLOAD_DIR || path.join(process.cwd(), "storage", "uploads");
 
-export const blobEnabled = () => !!process.env.BLOB_READ_WRITE_TOKEN;
+/** Vercel may prefix the variable name when a store is connected (e.g. STORAGE_READ_WRITE_TOKEN). */
+export function blobToken(): string {
+  const direct = process.env.BLOB_READ_WRITE_TOKEN;
+  if (direct) return direct.trim();
+  const key = Object.keys(process.env).find((k) => /_READ_WRITE_TOKEN$/.test(k) && process.env[k]);
+  return key ? String(process.env[key]).trim() : "";
+}
+
+export const blobEnabled = () => !!blobToken();
 
 /** Public base URL of the Blob store, derived from the token (or BLOB_BASE_URL). */
 export function blobBase(): string {
   if (process.env.BLOB_BASE_URL) return process.env.BLOB_BASE_URL.replace(/\/$/, "");
-  const id = (process.env.BLOB_READ_WRITE_TOKEN || "").split("_")[3];
+  const id = blobToken().split("_")[3];
   return id ? `https://${id.toLowerCase()}.public.blob.vercel-storage.com` : "";
 }
 
@@ -26,6 +34,7 @@ export async function putFile(rel: string, data: Buffer | Uint8Array, contentTyp
       addRandomSuffix: false,
       allowOverwrite: true,
       contentType,
+      token: blobToken(),
     });
     return;
   }
@@ -37,7 +46,7 @@ export async function putFile(rel: string, data: Buffer | Uint8Array, contentTyp
 export async function deleteFile(rel: string) {
   if (blobEnabled()) {
     const { del } = await import("@vercel/blob");
-    await del(`${blobBase()}/uploads/${rel}`).catch(() => {});
+    await del(`${blobBase()}/uploads/${rel}`, { token: blobToken() }).catch(() => {});
     return;
   }
   const root = path.resolve(UPLOAD_ROOT);

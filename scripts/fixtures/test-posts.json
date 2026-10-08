@@ -1,0 +1,21 @@
+{
+  "__test_only": true,
+  "posts": [
+    {"id":1,"date":"2026-09-12T10:00:00","date_gmt":"2026-09-12T07:00:00","slug":"may-intake-2026","link":"https://murangatech.ac.ke/may-intake-2026/",
+     "title":{"rendered":"Tree planting at Maliki Dam &#8211; World Environment Day"},
+     "excerpt":{"rendered":"<p>Trainees planted trees&hellip;</p>"},
+     "content":{"rendered":"<p>Trainees &amp; staff planted trees.</p><p>Second paragraph.</p><figure><img src=\"https://murangatech.ac.ke/wp-content/uploads/2026/06/tree-1024x684.jpg\" /></figure><img data-src=\"https://murangatech.ac.ke/wp-content/uploads/2026/06/tree2.jpg\" src=\"data:image/gif;base64,xx\"/><img src=\"https://murangatech.ac.ke/wp-content/plugins/x/spinner.png\"/>"},
+     "_embedded":{"author":[{"name":"Admin"}]}},
+    {"id":2,"date":"2026-08-01T09:00:00","slug":"tender-consumables","link":"https://murangatech.ac.ke/tender-consumables/",
+     "title":{"rendered":"TENDER: Supply of workshop consumables"},
+     "excerpt":{"rendered":""},
+     "content":{"rendered":"<div class=\"wp-block-file\"><a href=\"https://murangatech.ac.ke/wp-content/uploads/2026/08/tender-doc.pdf\">Download</a></div><p>Bids close soon.</p>"}},
+    {"id":3,"date_gmt":"2026-07-01T00:00:00","slug":"fees","link":"https://murangatech.ac.ke/fees/",
+     "title":{"rendered":"Updated Fee Structure"},"excerpt":{"rendered":""},
+     "content":{"rendered":"<p><a href=\"/wp-content/uploads/2026/07/fee-structure.pdf\">Fee structure 2026</a></p>"}},
+    {"id":4,"date":"2026-06-01T09:00:00","slug":"vac","link":"https://murangatech.ac.ke/vac/",
+     "title":{"rendered":"Vacancy: Accounts Assistant"},"excerpt":{"rendered":""},"content":{"rendered":"<p>Apply.</p>"}},
+    {"id":5,"date":"2026-05-01T09:00:00","slug":"closure","link":"https://murangatech.ac.ke/closure/",
+     "title":{"rendered":"Notice: College closure"},"excerpt":{"rendered":""},"content":{"rendered":"<p>Closed.</p>"}}
+  ]
+}

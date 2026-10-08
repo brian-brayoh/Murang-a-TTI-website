@@ -1,0 +1,12 @@
+node_modules
+.next
+.env
+.env.local
+.env.*.local
+storage
+*.tsbuildinfo
+.pgdata
+.vercel
+
+# db:export backups contain admin password hashes and uploads - never commit
+mtti-backup-*

@@ -33,6 +33,24 @@ async function main() {
     console.error("Set BLOB_READ_WRITE_TOKEN first (Vercel → Storage → your Blob store → .env.local tab).");
     process.exit(1);
   }
+  const token = process.env.BLOB_READ_WRITE_TOKEN.trim().replace(/^["']|["']$/g, "");
+  process.env.BLOB_READ_WRITE_TOKEN = token;
+  const parts = token.split("_");
+  if (!token.startsWith("vercel_blob_rw_") || parts.length < 5) {
+    console.error("That does not look like a Blob read-write token. It must start with vercel_blob_rw_ and be one long line.");
+    console.error(`(what I received: ${token.length} characters, starts with "${token.slice(0, 12)}")`);
+    process.exit(1);
+  }
+  console.log(`Blob store id: ${parts[3]}  (token length ${token.length})`);
+  try {
+    await put("uploads/.healthcheck.txt", "ok", { access: "public", addRandomSuffix: false, allowOverwrite: true, contentType: "text/plain" });
+  } catch (e) {
+    console.error(`Token check failed: ${(e as Error).message}`);
+    console.error("Copy the token again: Vercel > Storage > your Blob store > .env.local tab > Show secret.");
+    console.error("Use the BLOB_READ_WRITE_TOKEN value of THIS store, as one line, with nothing missing.");
+    process.exit(1);
+  }
+  console.log("Token OK.");
   const files = await walk(ROOT);
   console.log(`Uploading ${files.length} files from ${ROOT} ...`);
   let done = 0, skipped = 0, failed = 0;

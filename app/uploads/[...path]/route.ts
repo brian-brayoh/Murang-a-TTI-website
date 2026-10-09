@@ -24,6 +24,26 @@ const TYPES: Record<string, string> = {
 
 export async function GET(_req: Request, ctx: { params: Promise<{ path: string[] }> }) {
   const { path: segments } = await ctx.params;
+  // TEMPORARY diagnostic (remove once photos work): /uploads/_diag
+  if (segments.length === 1 && segments[0] === "_diag") {
+    const base = blobBase();
+    const out: Record<string, unknown> = {
+      blobEnabled: blobEnabled(),
+      blobHost: base ? base.replace(/^https?:\/\//, "") : null,
+      tokenVariableNames: Object.keys(process.env).filter((k) => /READ_WRITE_TOKEN|BLOB/i.test(k)),
+      databaseConfigured: !!process.env.DATABASE_URL,
+    };
+    if (base) {
+      try {
+        const r = await fetch(`${base}/uploads/migrated/2025/01/Mechanical-1.jpeg`, { cache: "no-store" });
+        out.sampleStatus = r.status;
+        out.sampleType = r.headers.get("content-type");
+      } catch (e) {
+        out.sampleStatus = `error: ${(e as Error).message}`;
+      }
+    }
+    return Response.json(out);
+  }
   if (blobEnabled()) {
     const rel = segments.map((s) => decodeURIComponent(s));
     if (rel.some((s) => s === ".." || s === "." || s.includes("/"))) return new Response("Not found", { status: 404 });

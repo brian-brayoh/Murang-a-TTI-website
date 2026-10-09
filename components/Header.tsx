@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { waHref } from "@/lib/contact-links";
 import SocialIcons from "@/components/SocialIcons";
 
@@ -40,6 +41,14 @@ const navLinks = [
 export default function Header({ site }: { site: { address: string; email: string; hours: string; whatsapp: string; social: { facebook?: string; instagram?: string; x?: string; youtube?: string; tiktok?: string } } }) {
   const [openMenu, setOpenMenu] = useState<"about" | "academics" | "enotice" | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
+  // Close the mobile menu (and any open dropdown) whenever the page changes.
+  const pathname = usePathname();
+  const [lastPath, setLastPath] = useState(pathname);
+  if (pathname !== lastPath) {
+    setLastPath(pathname);
+    setMobileOpen(false);
+    setOpenMenu(null);
+  }
 
   return (
     <header className="sticky top-0 z-50 bg-brand-900 text-white">
@@ -173,7 +182,13 @@ export default function Header({ site }: { site: { address: string; email: strin
       </div>
 
       {mobileOpen && (
-        <div className="lg:hidden bg-brand-800 px-6 py-4 flex flex-col gap-1 text-sm">
+        <div
+          className="lg:hidden bg-brand-800 px-6 py-4 flex flex-col gap-1 text-sm"
+          onClick={(e) => {
+            // Also closes when you tap the link of the page you are already on.
+            if ((e.target as HTMLElement).closest("a")) setMobileOpen(false);
+          }}
+        >
           <Link href="/" className="py-2 border-b border-white/10">
             Home
           </Link>

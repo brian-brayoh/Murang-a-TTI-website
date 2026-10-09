@@ -19,7 +19,7 @@ const META: Record<number, { label: string; badge: string; edge: string }> = {
   4: { label: "Level 4 · Artisan", badge: "bg-brand-200 text-brand-900", edge: "border-l-brand-200" },
   5: { label: "Level 5 · Craft", badge: "bg-brand-500 text-white", edge: "border-l-brand-500" },
   6: { label: "Level 6 · Diploma", badge: "bg-brand-900 text-white", edge: "border-l-brand-900" },
-  3: { label: "Short course", badge: "bg-accent text-brand-900", edge: "border-l-accent" },
+  3: { label: "Level 3 / Grades", badge: "bg-accent text-brand-900", edge: "border-l-accent" },
 };
 
 export default function DeptCourseList({ items, fallbackImage, dept }: { items: Item[]; fallbackImage?: string; dept: string }) {

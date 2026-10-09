@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { getSite } from "@/lib/site-details";
 import { pageContent } from "@/lib/repo";
 import UpdatedBy from "@/components/UpdatedBy";
@@ -44,7 +45,7 @@ export default async function SiteDetailsPage({ searchParams }: { searchParams: 
         <section className="border border-paper-line bg-white p-5 space-y-3">
           <h2 className="font-display font-semibold text-lg">Footer</h2>
           <F label="Short description" name="footerBlurb" value={s.footerBlurb} rows={3} />
-          <F label="Partners" name="partners" value={s.partners.join(", ")} hint="Separate with commas. Shown in the footer." />
+          <p className="text-xs text-steel">Partner logos are edited under <Link className="text-brand-700 underline" href="/admin/partners">Partners</Link>.</p>
         </section>
         <section className="border border-paper-line bg-white p-5 space-y-3">
           <h2 className="font-display font-semibold text-lg">Social media</h2>

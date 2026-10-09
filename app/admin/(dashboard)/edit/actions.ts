@@ -41,6 +41,7 @@ export async function saveEditAction(formData: FormData) {
       await courses.updateAll(id, {
         name: s(formData, "name"), department: s(formData, "department"), level: Number(s(formData, "level")) || 6,
         summary: s(formData, "summary"), duration: s(formData, "duration"), entry: s(formData, "entry"), examBody: s(formData, "examBody"),
+        details: String(formData.get("details") || "").trim(), imageUrl: s(formData, "imageUrl"),
       });
       break;
   }

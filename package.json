@@ -15,6 +15,7 @@
     "db:import": "tsx scripts/db-import.ts",
     "staff:sync": "tsx scripts/sync-staff.ts",
     "gallery:sync": "tsx scripts/sync-gallery.ts",
+    "partners:setup": "tsx scripts/setup-partners.ts",
     "db:check": "tsx scripts/db-check.ts",
     "courses:sync": "tsx scripts/sync-courses.ts",
     "pages:dump": "tsx scripts/dump-pages.ts",

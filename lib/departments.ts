@@ -14,6 +14,7 @@ export const STAFF_DEPARTMENTS = [
 
 export const ACADEMIC_DEPARTMENTS = [
   "Agriculture",
+  "Applied Sciences",
   "Business & Entrepreneurship",
   "Building & Civil",
   "Electrical & Electronics",
@@ -29,9 +30,10 @@ export const LEVEL_LABEL: Record<number, string> = {
   6: "Diploma",
 };
 
-// The seven teaching departments (no Administration / Support Staff).
+// The eight teaching departments (no Administration / Support Staff).
 export const COURSE_DEPARTMENTS = [
   "Agriculture",
+  "Applied Sciences",
   "Business & Entrepreneurship",
   "Building & Civil",
   "Electrical & Electronics",
@@ -47,5 +49,5 @@ export const LEVELS = [
   { level: 6, award: "Diploma" },
 ] as const;
 
-// Admin-only: same as LEVELS plus short courses (e.g. Computer Packages, 3 months).
-export const COURSE_LEVELS = [{ level: 3, award: "Short course" }, ...LEVELS] as const;
+// Admin-only: same as LEVELS plus Level 3 and the trade-test Grades I-III (and short courses).
+export const COURSE_LEVELS = [{ level: 3, award: "Level 3 / Grades" }, ...LEVELS] as const;

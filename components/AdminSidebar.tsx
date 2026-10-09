@@ -12,6 +12,7 @@ const ICON: Record<string, string> = {
   "Home page": "M3 11l9-8 9 8v10h-6v-6H9v6H3V11z",
   "Site details": "M12 3a9 9 0 100 18 9 9 0 000-18zm0 5v5m0 3v.01",
   "Students' Council": "M17 20v-2a4 4 0 00-4-4H7a4 4 0 00-4 4v2M10 10a4 4 0 100-8 4 4 0 000 8zm13 10v-2a4 4 0 00-3-3.9M16 2.1a4 4 0 010 7.8",
+  Partners: "M8 12h8m-8 0a3 3 0 11-6 0 3 3 0 016 0zm14 0a3 3 0 11-6 0 3 3 0 016 0z",
   Pages: "M7 3h7l5 5v13H7V3zm7 0v5h5",
   Notices: "M12 3a6 6 0 00-6 6c0 5-2 6-2 7h16c0-1-2-2-2-7a6 6 0 00-6-6zm-2 16a2 2 0 004 0",
   "Exam timetables": "M4 6h16v14H4V6zm0 5h16M8 3v4M16 3v4",

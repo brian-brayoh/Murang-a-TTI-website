@@ -316,6 +316,32 @@ export const adminUsers = {
   },
 };
 
+// ---- Password reset tokens (only a SHA-256 hash of the token is stored) ----
+export const passwordResets = {
+  async create(userId: string, tokenHash: string, minutes: number) {
+    await ensureSchema();
+    await sql`INSERT INTO password_reset (id, user_id, token_hash, expires_at)
+              VALUES (${newId("pr")}, ${userId}, ${tokenHash}, now() + (${minutes} * interval '1 minute'))`;
+  },
+  async findValid(tokenHash: string) {
+    await ensureSchema();
+    const rows = (await sql`SELECT id, user_id FROM password_reset
+                            WHERE token_hash = ${tokenHash} AND used_at IS NULL AND expires_at > now()`) as { id: string; user_id: string }[];
+    return rows[0];
+  },
+  async recentCount(userId: string, minutes: number) {
+    await ensureSchema();
+    const rows = (await sql`SELECT COUNT(*)::int AS n FROM password_reset
+                            WHERE user_id = ${userId} AND created_at > now() - (${minutes} * interval '1 minute')`) as { n: number }[];
+    return Number(rows[0].n);
+  },
+  /** Marks every open link for this user as used (after a successful reset). */
+  async closeAllFor(userId: string) {
+    await ensureSchema();
+    await sql`UPDATE password_reset SET used_at = now() WHERE user_id = ${userId} AND used_at IS NULL`;
+  },
+};
+
 // ---- Activity log ----
 export type Activity = { id: string; user_email: string; user_name: string; action: string; entity: string; title: string; created_at: string };
 
@@ -343,7 +369,7 @@ const DEFAULT_SETTINGS: SiteSettings = {
   courses_on_offer: "30+",
   trainees: "1200+",
   trainers: "60+",
-  departments: "7",
+  departments: "8",
 };
 
 export const settings = {
@@ -546,10 +572,10 @@ export const courses = {
     await ensureSchema();
     return ((await sql`SELECT * FROM course WHERE id = ${id}`) as Course[])[0];
   },
-  async updateAll(id: string, v: { name: string; department: string; level: number; summary: string; duration: string; entry: string; examBody: string }) {
+  async updateAll(id: string, v: { name: string; department: string; level: number; summary: string; duration: string; entry: string; examBody: string; details: string; imageUrl: string }) {
     await ensureSchema();
     await sql`UPDATE course SET name = ${v.name}, department = ${v.department}, level = ${v.level}, summary = ${v.summary},
-              duration = ${v.duration}, entry = ${v.entry}, exam_body = ${v.examBody} WHERE id = ${id}`;
+              duration = ${v.duration}, entry = ${v.entry}, exam_body = ${v.examBody}, details = ${v.details}, image_url = ${v.imageUrl} WHERE id = ${id}`;
   },
   async listPublished(): Promise<Course[]> {
     await ensureSchema();

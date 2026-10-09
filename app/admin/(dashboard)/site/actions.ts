@@ -15,11 +15,6 @@ const url = (v: unknown) => {
 
 export async function saveSiteAction(formData: FormData) {
   const actor = await requireAdmin();
-  const partners = String(formData.get("partners") || "")
-    .split(/[\n,]/)
-    .map((x) => x.trim())
-    .filter(Boolean)
-    .slice(0, 24);
   const value = {
     address: t(formData.get("address")) || DEFAULT_SITE.address,
     phone: t(formData.get("phone"), 40) || DEFAULT_SITE.phone,
@@ -27,7 +22,6 @@ export async function saveSiteAction(formData: FormData) {
     email: t(formData.get("email"), 120) || DEFAULT_SITE.email,
     hours: t(formData.get("hours"), 120),
     footerBlurb: t(formData.get("footerBlurb"), 300),
-    partners,
     facebook: url(formData.get("facebook")),
     instagram: url(formData.get("instagram")),
     x: url(formData.get("x")),

@@ -32,7 +32,7 @@ This guide shows the registrar and ICT team how to look after the Murang'a TTI w
 
 ## 4. Department pages and your own pages
 
-1. Open Pages. The first list is the seven department pages; click one to rewrite its text, change its tagline and choose its photos (the first photo is the banner).
+1. Open Pages. The first list is the eight department pages; click one to rewrite its text, change its tagline and choose its photos (the first photo is the banner).
 2. 'Discard my edits' puts back the original text if you are not happy.
 3. To make a brand new page (a policy, a partner page, an announcement), press + New page, give it a title and write the content. Its web address is made from the title and you can change it.
 4. Your new page is not added to the menu automatically. Link to it from a news post, or ask your web developer to add it to the menu.
@@ -44,8 +44,9 @@ This guide shows the registrar and ICT team how to look after the Murang'a TTI w
 Most of the public site can be changed without any help: three places cover almost everything visitors read.
 
 1. Home page (Content > Home page): the welcome pop-up (and how often it appears), the orange banner, the photo slideshow, the Mission/Vision/Values, the service-charter standards and the bottom call to action. Change the banner and pop-up each time an intake opens or closes.
-2. Site details (Content > Site details): phone, WhatsApp number, email, address, office hours, footer text, partners, social media links and the Admissions headline. Change a number once and it updates the header, footer, contact page, admissions page and every WhatsApp button.
+2. Site details (Content > Site details): phone, WhatsApp number, email, address, office hours, footer text, social media links and the Admissions headline. Change a number once and it updates the header, footer, contact page, admissions page and every WhatsApp button.
 3. Pages > Main pages: the wording of About us and the Students' Council page.
+   - Partners (Institute > Partners): the logos that scroll above the footer on every page. Add a name and logo, reorder with Up/Down, add a website to make a logo clickable.
 4. Departments: the writing and photos for each department are under Pages > Department pages, and the programmes in each are under Courses.
 
 > **Tip:** Before every intake, update: the banner, the pop-up, the Admissions headline and the slideshow. That is a five-minute job.
@@ -88,7 +89,7 @@ Most of the public site can be changed without any help: three places cover almo
 2. Wrong photo or file: open the item, press Change on the photo or file, pick the right one and save.
 3. Something should not be public yet: open it and untick Published (or press Unpublish on the News list).
 4. Deleted by mistake: deleted items cannot be brought back from the admin. Check Activity to see what was deleted and re-create it, and tell your web developer so a database backup can be restored if it matters.
-5. Cannot sign in: ask an administrator to set a new password for you under Users. If no administrator can sign in, contact your web developer.
+5. Forgot your password: on the sign-in page click 'Forgot your password?', enter your email and open the link we send you (valid for 1 hour, works once). If no email arrives, check spam, or ask an administrator to set a new password for you under Users. If no administrator can sign in, contact your web developer.
 6. Anything else (broken page, error message): take a screenshot, note the page address, and send it to your web developer.
 
 ## 11. Good habits

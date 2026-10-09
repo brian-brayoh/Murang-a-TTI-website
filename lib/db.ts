@@ -69,6 +69,15 @@ async function applySchema() {
     created_at TIMESTAMPTZ NOT NULL DEFAULT now()
   )`;
 
+  await sql`CREATE TABLE IF NOT EXISTS password_reset (
+    id TEXT PRIMARY KEY,
+    user_id TEXT NOT NULL,
+    token_hash TEXT UNIQUE NOT NULL,
+    expires_at TIMESTAMPTZ NOT NULL,
+    used_at TIMESTAMPTZ,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+  )`;
+
   await sql`CREATE TABLE IF NOT EXISTS post (
     id TEXT PRIMARY KEY,
     title TEXT NOT NULL,

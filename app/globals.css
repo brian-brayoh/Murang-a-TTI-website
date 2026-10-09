@@ -93,7 +93,25 @@ body {
   to { transform: translateX(-50%); }
 }
 
+/* partners strip: slow loop, pauses while someone hovers or touches it */
+.partners-viewport {
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+}
+.partners-track {
+  display: flex;
+  width: max-content;
+  animation: partners-scroll 40s linear infinite;
+}
+.partners-track:hover, .partners-track:active { animation-play-state: paused; }
+@keyframes partners-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .partners-track { animation: none; }
+  .partners-viewport { overflow-x: auto !important; }
   .hero-slide img, .hero-slide.is-active img { transform: none; transition: none; }
   .hero-copy { animation: none; }
   .marquee-track { animation: none; }

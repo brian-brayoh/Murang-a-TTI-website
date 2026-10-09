@@ -9,7 +9,6 @@ export type SiteDetails = {
   email: string;
   hours: string;
   footerBlurb: string;
-  partners: string[];
   facebook: string;
   instagram: string;
   x: string;
@@ -30,7 +29,6 @@ export const DEFAULT_SITE: SiteDetails = {
   email: "info@murangatech.ac.ke",
   hours: "Mon–Fri, 8:00am–5:00pm",
   footerBlurb: "Nurturing technological innovation through hands-on, CBET-accredited training in Maragua, Murang'a County.",
-  partners: ["KNEC", "TVETA", "KUCCPS", "HELB", "TVET CDACC", "KATTI"],
   facebook: "",
   instagram: "",
   x: "",
@@ -51,7 +49,6 @@ export const getSite = cache(async function getSite(): Promise<SiteDetails> {
     return {
       ...DEFAULT_SITE,
       ...v,
-      partners: Array.isArray(v.partners) ? v.partners : DEFAULT_SITE.partners,
       banners: { ...DEFAULT_BANNERS, ...(v.banners && typeof v.banners === "object" ? v.banners : {}) },
     };
   } catch {

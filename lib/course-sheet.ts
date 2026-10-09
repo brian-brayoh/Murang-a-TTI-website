@@ -83,7 +83,7 @@ export async function buildWorkbook(rows: SheetCourse[], opts: { examples: boole
   const lvlRef = `Lists!$B$2:$B$${COURSE_LEVELS.length + 1}`;
   for (let r = 2; r <= MAX_ROWS + 1; r++) {
     ws.getCell(`A${r}`).dataValidation = { type: "list", allowBlank: true, formulae: [deptRef], showErrorMessage: true, errorTitle: "Department", error: "Pick a department from the list." };
-    ws.getCell(`C${r}`).dataValidation = { type: "list", allowBlank: true, formulae: [lvlRef], showErrorMessage: true, errorTitle: "Level", error: "Use 3 (short course), 4, 5 or 6." };
+    ws.getCell(`C${r}`).dataValidation = { type: "list", allowBlank: true, formulae: [lvlRef], showErrorMessage: true, errorTitle: "Level", error: "Use 3 (Level 3, Grade I-III or short course), 4, 5 or 6." };
     ws.getCell(`I${r}`).dataValidation = { type: "list", allowBlank: true, formulae: ['"Yes,No"'] };
   }
 
@@ -94,7 +94,7 @@ export async function buildWorkbook(rows: SheetCourse[], opts: { examples: boole
     "",
     "1. Go to the 'Courses' sheet. Each row is one course. Delete the grey EXAMPLE row.",
     "2. Department and Course name and Level are required. Pick Department and Level from the drop-down lists.",
-    "3. Level: 4 = Artisan, 5 = Craft, 6 = Diploma, 3 = Short course.",
+    "3. Level: 4 = Artisan, 5 = Craft, 6 = Diploma, 3 = Level 3 / Grades I-III / short course.",
     "4. Duration, Entry requirement, Examined by, Short summary and Full description are optional.",
     "5. Published: Yes shows the course on the website, No keeps it as a hidden draft. Empty means Yes.",
     "6. Save the file, then in the admin go to Courses > Import from Excel and upload it. You see a preview before anything is saved.",
@@ -183,6 +183,7 @@ export async function readRows(buf: Buffer, filename: string): Promise<RawRow[]>
 // ---- checking the rows --------------------------------------------------------
 
 const DEPT_ALIASES: [RegExp, (typeof COURSE_DEPARTMENTS)[number]][] = [
+  [/applied|science|laborator|biolog/, "Applied Sciences"],
   [/agri/, "Agriculture"],
   [/business|entrepren|accounting|commerce|management(?!.*hospital)/, "Business & Entrepreneurship"],
   [/build|civil|construction/, "Building & Civil"],

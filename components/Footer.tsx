@@ -17,10 +17,9 @@ const quickLinks = [
 ];
 
 export default function Footer({ site }: { site: SiteDetails }) {
-  const partners = site.partners;
   return (
     <footer className="bg-brand-900 text-brand-200">
-      <div className="max-w-6xl mx-auto px-6 lg:px-10 py-14 grid gap-10 md:grid-cols-4">
+      <div className="max-w-6xl mx-auto px-6 lg:px-10 py-14 grid gap-10 md:grid-cols-3">
         <div>
           <span className="font-display font-semibold text-lg text-white">
             Murang&apos;a TTI
@@ -59,17 +58,6 @@ export default function Footer({ site }: { site: SiteDetails }) {
               </a>
             </li>
             <li>{site.hours}</li>
-          </ul>
-        </div>
-
-        <div>
-          <h3 className="font-display text-sm font-semibold text-white tick">
-            Our partners
-          </h3>
-          <ul className="mt-4 grid grid-cols-2 gap-x-3 gap-y-2 text-sm font-mono">
-            {partners.map((p) => (
-              <li key={p}>{p}</li>
-            ))}
           </ul>
         </div>
       </div>

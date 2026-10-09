@@ -55,12 +55,12 @@ function Banner({ src, alt, name, priority }: { src?: string; alt: string; name:
   );
 }
 
-// level -> label, badge colours, left-edge colour. Short courses (3) sort last.
+// level -> label, badge colours, left-edge colour. Level 3 / Grade courses (3) sort last.
 const LEVEL_META: Record<number, { label: string; short: string; badge: string; edge: string }> = {
   4: { label: "Level 4 · Artisan", short: "Artisan", badge: "bg-brand-200 text-brand-900", edge: "border-l-brand-200" },
   5: { label: "Level 5 · Craft", short: "Craft", badge: "bg-brand-500 text-white", edge: "border-l-brand-500" },
   6: { label: "Level 6 · Diploma", short: "Diploma", badge: "bg-brand-900 text-white", edge: "border-l-brand-900" },
-  3: { label: "Short course", short: "Short course", badge: "bg-accent text-brand-900", edge: "border-l-accent" },
+  3: { label: "Level 3 / Grades", short: "Level 3", badge: "bg-accent text-brand-900", edge: "border-l-accent" },
 };
 const RANK: Record<number, number> = { 4: 0, 5: 1, 6: 2, 3: 3 };
 

@@ -12,6 +12,11 @@ const departments = [
     blurb: "Agripreneurship, crop and livestock production for a working farm economy.",
   },
   {
+    name: "Applied Sciences",
+    level: "L5\u2013L6",
+    blurb: "Applied biology and science laboratory technology for lab and research careers.",
+  },
+  {
     name: "Business & Entrepreneurship",
     level: "L4\u2013L6",
     blurb: "Accounting, supply chain and business management for self-reliant enterprise.",

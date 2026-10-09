@@ -10,7 +10,7 @@ import PhotoFrame from "@/components/PhotoFrame";
 export const metadata: Metadata = {
   title: "Academics | Murang'a TTI",
   description:
-    "Seven departments and CBET training from Level 4 to Level 6 at Murang'a Technical Training Institute, Maragua.",
+    "Eight departments and CBET training from Level 4 to Level 6 at Murang'a Technical Training Institute, Maragua.",
 };
 
 const stairHeights = ["min-h-40", "min-h-52", "min-h-64"];
@@ -32,7 +32,7 @@ export default async function Academics() {
           <div>
             <p className="tick text-accent font-mono text-sm">Academics</p>
             <h1 className="mt-3 font-display font-semibold text-4xl sm:text-5xl leading-[1.08] max-w-2xl">
-              Seven departments, one workshop-first approach.
+              Eight departments, one workshop-first approach.
             </h1>
             <p className="mt-5 text-brand-200 text-lg max-w-xl leading-relaxed">
               Competency-based training that puts a tool, a circuit or a
@@ -42,7 +42,7 @@ export default async function Academics() {
           <dl className="grid grid-cols-3 border border-white/15 divide-x divide-white/15 font-mono">
             <div className="p-4">
               <dt className="text-xs text-brand-200">Departments</dt>
-              <dd className="mt-1 text-3xl text-accent">7</dd>
+              <dd className="mt-1 text-3xl text-accent">8</dd>
             </div>
             <div className="p-4">
               <dt className="text-xs text-brand-200">CBET levels</dt>

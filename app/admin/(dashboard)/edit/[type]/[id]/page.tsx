@@ -25,7 +25,7 @@ function FieldInput({ f, value }: { f: Field; value: string }) {
   switch (f.kind) {
     case "image": return <ImageField name={f.name} label={f.label} defaultValue={value} />;
     case "file": return <FileField name={f.name} label={f.label} defaultValue={value} />;
-    case "textarea": return (<div><label className="text-sm text-steel">{f.label}</label><textarea name={f.name} rows={4} defaultValue={value} className={input} /></div>);
+    case "textarea": return (<div><label className="text-sm text-steel">{f.label}</label><textarea name={f.name} rows={4} defaultValue={value} className={input} />{f.hint && <p className="mt-1 text-xs text-steel">{f.hint}</p>}</div>);
     case "date": return (<div><label className="text-sm text-steel">{f.label}</label><input type="date" name={f.name} defaultValue={value ? new Date(value).toISOString().slice(0, 10) : ""} className={input} /></div>);
     case "select": return (
       <div><label className="text-sm text-steel">{f.label}</label>

@@ -57,7 +57,7 @@ export const DEFAULT_SECTIONS: Sections = {
   mission: "To provide technical and vocational training that produces competent manpower able to compete in the labour market.",
   vision: "To be a centre of excellence in TVET, empowering learners with skills for innovation, employability and development.",
   values: "Integrity, discipline, teamwork and innovation, practised in every workshop and classroom.",
-  deptHeading: "Seven departments, one workshop-first approach.",
+  deptHeading: "Eight departments, one workshop-first approach.",
   charterHeadline: "A service charter every trainee, staff member and partner can hold us to.",
   charterText:
     "The Charter sets out our service standards, timelines and the shared responsibilities between the institute and the people it serves \u2014 promoting transparency and continuous improvement.",
@@ -82,7 +82,7 @@ export const DEFAULT_SLIDES: HeroSlide[] = [
   {
     kicker: "Your gateway to skilled careers",
     title: "Building careers, one skill at a time",
-    tagline: "Hands-on training across seven departments",
+    tagline: "Hands-on training across eight departments",
     cta: { label: "Explore our courses", href: "/academics" },
     src: `/uploads/migrated/2025/02/mech-2.jpeg`,
   },

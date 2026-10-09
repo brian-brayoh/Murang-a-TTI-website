@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 const steps = [
   {
     title: "Choose your department",
-    desc: "Review the seven departments and pick the programme and level that fits your goals.",
+    desc: "Review the eight departments and pick the programme and level that fits your goals.",
   },
   {
     title: "Submit your application",

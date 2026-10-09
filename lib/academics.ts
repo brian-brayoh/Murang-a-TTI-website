@@ -54,6 +54,13 @@ export const departments: Department[] = [
     imageCaption: "Livestock training, Agriculture Department",
   },
   {
+    id: "applied-sciences",
+    name: "Applied Sciences",
+    tagline: "Laboratory and life-science training",
+    blurb:
+      "Applied Biology and Science Laboratory Technology, taught at Craft (Level 5) and Diploma (Level 6).",
+  },
+  {
     id: "business",
     name: "Business & Entrepreneurship",
     tagline: "Skills to run and grow an enterprise",
